@@ -31,7 +31,7 @@ public class AppController {
 	/*
 	 * This method will list all existing employees.
 	 */
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+	@RequestMapping(value = {  "/list" }, method = RequestMethod.GET)
 	public String listEmployees(ModelMap model) {
 
 		List<Employee> employees = service.findAllEmployees();
