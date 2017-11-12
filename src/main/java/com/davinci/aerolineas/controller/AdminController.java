@@ -72,6 +72,19 @@ public class AdminController {
 
     }
 
+    @RequestMapping(value = {"/aviones"}, method = RequestMethod.GET)
+    public String aciones(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (isAnalista(usuario)) {
+            Destinos destinos = new Destinos();
+            model.addAttribute("destinos", destinos);
+            return "aviones";
+        } else {
+            return "login";
+        }
+
+    }
+
 
     private Boolean isAnalista(Usuario usuario) {
 

@@ -30,6 +30,7 @@ public class EmployeeDaoImpl extends AbstractDao<Integer, Employee> implements E
 	public List<Employee> findAllEmployees() {
 		Criteria criteria = createEntityCriteria();
 		return (List<Employee>) criteria.list();
+
 	}
 
 	public Employee findEmployeeBySsn(String ssn) {
