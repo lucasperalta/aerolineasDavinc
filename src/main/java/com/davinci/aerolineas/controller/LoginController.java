@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,22 +32,27 @@ public class LoginController {
 	}
 
     @RequestMapping(value = {"/login" }, method = RequestMethod.POST)
-    public String loginPost(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+    public ModelAndView loginPost(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
        String usuarioParam= request.getParameter("usuario");
        String passwordParam= request.getParameter("password");
        String criptedPassword= Encrypt.crypt(passwordParam);
 	   Usuario usuario =service.findUser(usuarioParam, criptedPassword);
        String redirect="login";
+        ModelAndView modelo = new ModelAndView(redirect);
         if(usuario==null){
-            return redirect;
+            return modelo;
         }
         request.getSession().setAttribute("usuario",usuario);
         if(isAnalista(usuario)){
             redirect= "admin";
+            modelo = new ModelAndView(redirect);
+
         }else{
-            redirect="ventas";
+
+            redirect="redirect:/ventas";
+            modelo = new ModelAndView(redirect);
         }
-        return redirect;
+        return modelo;
 
     }
 

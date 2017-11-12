@@ -18,8 +18,7 @@ public class Destinos {
     private String provincia;
 
 
-    @Column(name = "ciudad")
-    private String ciudad;
+
 
 
     public int getIdDestino() {
@@ -46,11 +45,5 @@ public class Destinos {
         this.provincia = provincia;
     }
 
-    public String getCiudad() {
-        return ciudad;
-    }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
 }

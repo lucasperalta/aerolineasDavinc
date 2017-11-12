@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service("destinoService")
 @Transactional
 public class DestinoServiceImpl implements DestinoService {
@@ -22,5 +24,13 @@ public class DestinoServiceImpl implements DestinoService {
 			dao.saveDestino(destinos);
 
 
+	}
+
+	public List<Destinos> getAll() {
+		return dao.getAll();
+	}
+
+	public Destinos getById(int origenId) {
+		return dao.getById(origenId);
 	}
 }

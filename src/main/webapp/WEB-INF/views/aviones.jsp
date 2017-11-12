@@ -22,7 +22,7 @@
 
 	<h2>Registration Aviones</h2>
  
-	<form:form method="POST" modelAttribute="aviones" action="/altaDestino">
+	<form:form method="POST" modelAttribute="aviones" action="/altaAviones">
 		<form:input type="hidden" path="idAvion" id="idAvion"/>
 		<table>
 			<tr>
@@ -44,9 +44,9 @@
 		    </tr>
 
 			<tr>
-				<td><label for="cantidadButacas">cantidad butacas: </label> </td>
-				<td><form:input path="cantidadButacas" id="cantidadButacas"/></td>
-				<td><form:errors path="cantidadButacas" cssClass="error"/></td>
+				<td><label for="butacas">cantidad butacas: </label> </td>
+				<td><form:input path="butacas" id="butacas"/></td>
+				<td><form:errors path="butacas" cssClass="error"/></td>
 			</tr>
 
 			<tr>

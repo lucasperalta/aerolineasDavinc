@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <head>
@@ -6,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
+
+    <link rel="stylesheet" href="/recursos/css/bootstrap.min.css">
 
 </head>
 
@@ -26,7 +30,7 @@
       <tr>
         <th>Vuelos</th>
         <th>Modelo</th>
-        <th>Matr√≠cula</th>
+        <th>MatrÌcula</th>
         <th>Butacas Disponibles</th>
         <th>Costo de Pasajes</th>
         <th class="t-center">Marcar</th>
@@ -89,7 +93,7 @@
                  
                     <div class="col-md-12">
                         <div class="button-container">
-                            <button type="button" class="btn btn-default submit centerbtn"><i class="fa fa-paper-plane" aria-hidden="true"></i> Atr√°s</button>
+                            <button type="button" class="btn btn-default submit centerbtn"><i class="fa fa-paper-plane" aria-hidden="true"></i> Atr·s</button>
                             <button type="button" class="btn btn-default submit centerbtn"><i class="fa fa-paper-plane" aria-hidden="true"></i> Comprar</button>
                         </div>
                     </div>

@@ -37,11 +37,7 @@
 				<td><form:errors path="provincia" cssClass="error"/></td>
 		    </tr>
 	
-			<tr>
-				<td><label for="ciudad">ciudad: </label> </td>
-				<td><form:input path="ciudad" id="ciudad"/></td>
-				<td><form:errors path="ciudad" cssClass="error"/></td>
-		    </tr>
+
 
 			<tr>
 				<td colspan="3">

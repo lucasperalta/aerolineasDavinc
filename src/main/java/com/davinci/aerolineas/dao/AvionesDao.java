@@ -1,9 +1,15 @@
 package com.davinci.aerolineas.dao;
 
+import com.davinci.aerolineas.model.Aviones;
 import com.davinci.aerolineas.model.Destinos;
 
+import java.util.List;
+
 public interface AvionesDao {
+    void saveAviones(Aviones aviones);
 
 
-    //void saveAvion(Aviones avion);
+    List<Aviones> getAll();
+
+    Aviones getById(int avionId);
 }
