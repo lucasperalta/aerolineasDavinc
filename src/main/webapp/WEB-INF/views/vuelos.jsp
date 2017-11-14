@@ -9,32 +9,38 @@
 <c:if test="${not empty error}">
     Error: ${error}
 </c:if>
-<form method="POST"  action="/altaVuelos">
-    <input type="hidden" path="idVuelo" id="idDestino"/>
+<div id="contact" >
+    <div class="container">
+        <h1 class="text-center title">Agregar Vuelo</h1>
+        <form method="POST"  action="/altaVuelos">
+            <input type="hidden" path="idVuelo" id="idDestino"/>
+            <div class="form-group">
+                <label for="avion">Avion</label>
+                <select class="selectpicker" name="avion" id="avion" class=field>
+                    <option value="0">Seleccione Avion</option>
 
-<label for="avion">Avion</label>
-<select name="avion" id="avion" class=field>
-    <option value="0">Seleccione Avion</option>
+                    <c:forEach items="${aviones}" var="avion">
+                        <option value="${avion.idAvion}">${avion.marca}-${avion.modelo}-${avion.matricula}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="rutas">Rutas</label>
+                <select class="selectpicker" name="ruta" id="ruta" class=field>
+                    <option value="0">Seleccione Ruta</option>
 
-    <c:forEach items="${aviones}" var="avion">
-    <option value="${avion.idAvion}">${avion.marca}-${avion.modelo}-${avion.matricula}</option>
-</c:forEach>
-</select>
-
-<label for="rutas">Rutas</label>
-<select name="ruta" id="ruta" class=field>
-    <option value="0">Seleccione Ruta</option>
-
-    <c:forEach items="${rutas}" var="ruta">
-        <option value="${ruta.idRuta}">${ruta.destinoPartida.pais} ${ruta.destinoPartida.provincia} - ${ruta.destinoLlegada.pais} ${ruta.destinoLlegada.provincia}</option>
-    </c:forEach>
-</select>
-
-    <label for="costoVuelo">Costo del Vuelo</label>
-
-    <input type="text" name="costoVuelo" id="costoVuelo">
-
-<input type="submit" value="Agregar Vuelo"/>
-</form>
+                    <c:forEach items="${rutas}" var="ruta">
+                        <option value="${ruta.idRuta}">${ruta.destinoPartida.pais} ${ruta.destinoPartida.provincia} - ${ruta.destinoLlegada.pais} ${ruta.destinoLlegada.provincia}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="costoVuelo">Costo del Vuelo</label>
+                <input class="form-control costo" type="text" name="costoVuelo" id="costoVuelo">
+            </div>
+            <input class="btn btn-default submit" type="submit" value="Agregar Vuelo"/>
+        </form>
+    </div>
+</div>
 </body>
 </html>

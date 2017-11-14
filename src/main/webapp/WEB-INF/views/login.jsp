@@ -18,33 +18,43 @@
 
 </head>
 
-<body>
+body>
+<div id="contact">
+    <div class="container">
+        <h2 class="text-center">Login</h2>
 
-<h2>Registration Form</h2>
+        <div class="login">
+            <form:form method="POST" action="/login" >
+            <table>
+                <tr>
 
-<form:form method="POST" action="/login" >
-    <table>
-        <tr>
-            <td><label for="usuario">Usuario: </label> </td>
-            <td><input type="text" name="usuario" id="usuario"/></td>
+                    <td><div class="form-group">
+                        <label for="usuario">Usuario: </label> </td>
+                    <td><input class="form-control" type="text" name="usuario" id="usuario"/></td>
+        </div>
+
         </tr>
 
         <tr>
-            <td><label for="Password">Password: </label> </td>
-            <td><input type="password" name="password" id="password"/></td>
-        </tr>
+            <td><div class="form-group">
+                <label for="Password">Password: </label> </td>
+            <td><input class="form-control" type="password" name="password" id="password"/></td>
+    </div>
+    </tr>
 
 
 
 
-        <tr>
-            <td colspan="3">
-                <input type="submit" value="submit"/>
+    <tr>
+        <td colspan="3">
+            <input class="btn btn-default submit sublog" type="submit" value="Entrar"/>
 
-            </td>
-        </tr>
+        </td>
+    </tr>
     </table>
-</form:form>
-
+    </form:form>
+</div>
+</div>
+</div>
 </body>
 </html>

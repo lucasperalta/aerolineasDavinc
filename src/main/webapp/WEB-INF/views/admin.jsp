@@ -11,17 +11,20 @@
     <title>Admin</title>
 </head>
 <body>
-    
-    <nav>
+
+<div id="contact">
+    <div class="container">
+        <h1 class="text-center">Menú Admin</h1>
+    <nav class="admin">
         <ul>
-           <li> <a href="<c:url value='/aviones' />">Agregar Avion</a></li>
-            <li> <a href="<c:url value='/listarAviones' />">Listar Aviones</a></li>
-            <li> <a href="<c:url value='/destinos' />">Agregar Destinos</a></li>
-            <li> <a href="<c:url value='/listarDestinos' />">Listar Destinos</a></li>
-            <li><a href="<c:url value='/rutas' />">Agregar Ruta</a></li>
-            <li> <a href="<c:url value='/listarRutas' />">Listar Rutas</a></li>
-            <li><a href="<c:url value='/vuelos' />">Agregar Vuelos</a></li>
-            <li> <a href="<c:url value='/listarVuelos' />">Listar Vuelos</a></li>
+           <li> <a class="btn btn-default submit" href="<c:url value='/aviones' />">Agregar Avion</a></li>
+            <li> <a class="btn btn-default submit" href="<c:url value='/listarAviones' />">Listar Aviones</a></li>
+            <li> <a class="btn btn-default submit" href="<c:url value='/destinos' />">Agregar Destinos</a></li>
+            <li> <a class="btn btn-default submit" href="<c:url value='/listarDestinos' />">Listar Destinos</a></li>
+            <li><a  class="btn btn-default submit" href="<c:url value='/rutas' />">Agregar Ruta</a></li>
+            <li> <a  class="btn btn-default submit" href="<c:url value='/listarRutas' />">Listar Rutas</a></li>
+            <li><a  class="btn btn-default submit" href="<c:url value='/vuelos' />">Agregar Vuelos</a></li>
+            <li> <a class="btn btn-default submit" href="<c:url value='/listarVuelos' />">Listar Vuelos</a></li>
 
         </ul>
 
@@ -29,5 +32,8 @@
     </nav>
     
 
+
+    </div>
+</div>
 </body>
 </html>

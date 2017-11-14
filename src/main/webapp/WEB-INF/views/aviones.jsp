@@ -19,6 +19,8 @@
 </head>
 
 <body>
+<div id="contact">
+	<div class="container">
 
 	<h2> Aviones</h2>
     <c:set var="action" value="/altaAviones" />
@@ -50,11 +52,12 @@
 				<td><form:errors path="matricula" cssClass="error"/></td>
 		    </tr>
 
-			<tr>
-				<td><label for="butacas">cantidad butacas: </label> </td>
-				<td><form:input path="butacas" id="butacas"/></td>
-				<td><form:errors path="butacas" cssClass="error"/></td>
-			</tr>
+
+						<td> <div class="form-group">
+							<label for="marca">Marca: </label> </td>
+						<td><form:input class="form-control" path="marca" id="marca"/></td>
+					</div>
+					<td><form:errors path="marca" cssClass="error"/></td>
 
 			<tr>
 				<td colspan="3">
@@ -73,5 +76,6 @@
 	<br/>
 	<br/>
 	Go back to <a href="<c:url value='/showAdmin' />">Volver a admin</a>
+
 </body>
 </html>
