@@ -15,4 +15,8 @@ public void saveVuelo(Vuelo vuelo){
     persist(vuelo);
 }
 
+    public List<Vuelo> getAll() {
+         return createEntityCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+    }
+
 }

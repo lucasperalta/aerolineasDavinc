@@ -20,9 +20,14 @@
 
 <body>
 
-	<h2>Registration Form</h2>
- 
-	<form:form method="POST" modelAttribute="destinos" action="/altaDestino">
+	<h2>Destinos</h2>
+    <c:set var="action" value="/altaDestino" />
+
+	<c:if test = "${edit}">
+		<c:set var="action" value="/updateDestino" />
+
+	</c:if>
+	<form:form method="POST" modelAttribute="destinos" action="${action}">
 		<form:input type="hidden" path="idDestino" id="idDestino"/>
 		<table>
 			<tr>
@@ -43,10 +48,10 @@
 				<td colspan="3">
 					<c:choose>
 						<c:when test="${edit}">
-							<input type="submit" value="Update"/>
+							<input type="submit" value="editar"/>
 						</c:when>
 						<c:otherwise>
-							<input type="submit" value="Register"/>
+							<input type="submit" value="agregar"/>
 						</c:otherwise>
 					</c:choose>
 				</td>

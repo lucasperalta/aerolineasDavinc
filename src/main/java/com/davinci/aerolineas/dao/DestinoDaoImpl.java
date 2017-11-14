@@ -3,6 +3,7 @@ package com.davinci.aerolineas.dao;
 import com.davinci.aerolineas.model.Destinos;
 import com.davinci.aerolineas.model.Usuario;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -27,6 +28,12 @@ public class DestinoDaoImpl extends AbstractDao<Integer, Destinos> implements De
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("idDestino", origenId));
         return (Destinos) criteria.uniqueResult();
+    }
+
+    public void deleteDestinoById(int idDestino) {
+        Query query = getSession().createSQLQuery("delete from Destinos where idDestino = :idDestino");
+        query.setInteger("idDestino", idDestino);
+        query.executeUpdate();
     }
 
 

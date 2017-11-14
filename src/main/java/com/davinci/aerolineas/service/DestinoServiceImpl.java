@@ -2,13 +2,12 @@ package com.davinci.aerolineas.service;
 
 import com.davinci.aerolineas.dao.DestinoDao;
 import com.davinci.aerolineas.dao.UsuarioDao;
-import com.davinci.aerolineas.model.Destinos;
-import com.davinci.aerolineas.model.Employee;
-import com.davinci.aerolineas.model.Usuario;
+import com.davinci.aerolineas.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("destinoService")
@@ -33,4 +32,20 @@ public class DestinoServiceImpl implements DestinoService {
 	public Destinos getById(int origenId) {
 		return dao.getById(origenId);
 	}
+
+	public void deleteDestinoById(int idDestino) {
+		dao.deleteDestinoById(idDestino);
+
+	}
+
+	public void updateDestino(Destinos destinos) {
+		Destinos entity = dao.getById(destinos.getIdDestino());
+		if(entity!=null){
+			entity.setPais(destinos.getPais());
+			entity.setProvincia(destinos.getProvincia());
+
+		}
+	}
+
+
 }

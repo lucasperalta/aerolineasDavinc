@@ -13,4 +13,8 @@ public interface DestinoService {
     List<Destinos> getAll();
 
     Destinos getById(int origenId);
+
+    void deleteDestinoById(int idDestino);
+
+    void updateDestino(Destinos destinos);
 }

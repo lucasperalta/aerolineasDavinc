@@ -20,9 +20,16 @@
 
 <body>
 
-	<h2>Registration Aviones</h2>
- 
-	<form:form method="POST" modelAttribute="aviones" action="/altaAviones">
+	<h2> Aviones</h2>
+    <c:set var="action" value="/altaAviones" />
+
+
+	     <c:if test = "${edit}">
+             <c:set var="action" value="/updateAviones" />
+
+		 </c:if>
+	<form:form method="POST" modelAttribute="aviones" action="${action}">
+
 		<form:input type="hidden" path="idAvion" id="idAvion"/>
 		<table>
 			<tr>
@@ -53,10 +60,10 @@
 				<td colspan="3">
 					<c:choose>
 						<c:when test="${edit}">
-							<input type="submit" value="Update"/>
+							<input type="submit" value="editar"/>
 						</c:when>
 						<c:otherwise>
-							<input type="submit" value="Register"/>
+							<input type="submit" value="Agregar"/>
 						</c:otherwise>
 					</c:choose>
 				</td>

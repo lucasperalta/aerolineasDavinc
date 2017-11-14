@@ -12,4 +12,6 @@ public interface AvionesDao {
     List<Aviones> getAll();
 
     Aviones getById(int avionId);
-}
+     void deleteAvionById(int idAvion);
+
+    }

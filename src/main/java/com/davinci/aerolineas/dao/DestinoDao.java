@@ -13,4 +13,6 @@ public interface DestinoDao {
     List<Destinos> getAll();
 
     Destinos getById(int origenId);
+
+    void deleteDestinoById(int idDestino);
 }

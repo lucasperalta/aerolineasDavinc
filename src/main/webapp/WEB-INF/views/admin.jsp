@@ -15,10 +15,17 @@
     <nav>
         <ul>
            <li> <a href="<c:url value='/aviones' />">Agregar Avion</a></li>
-            <li> <a href="<c:url value='/destinos' />">Destinos</a></li>
-            <li><a href="<c:url value='/rutas' />">Nueva Ruta</a></li>
+            <li> <a href="<c:url value='/listarAviones' />">Listar Aviones</a></li>
+            <li> <a href="<c:url value='/destinos' />">Agregar Destinos</a></li>
+            <li> <a href="<c:url value='/listarDestinos' />">Listar Destinos</a></li>
+            <li><a href="<c:url value='/rutas' />">Agregar Ruta</a></li>
+            <li> <a href="<c:url value='/listarRutas' />">Listar Rutas</a></li>
             <li><a href="<c:url value='/vuelos' />">Agregar Vuelos</a></li>
+            <li> <a href="<c:url value='/listarVuelos' />">Listar Vuelos</a></li>
+
         </ul>
+
+
     </nav>
     
 

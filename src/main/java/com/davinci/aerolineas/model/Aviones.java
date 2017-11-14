@@ -1,5 +1,7 @@
 package com.davinci.aerolineas.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -23,8 +25,7 @@ public class Aviones {
     private String matricula;
 
 
-
-    @OneToMany(mappedBy = "avion", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "avion", cascade=CascadeType.ALL,fetch=FetchType.EAGER,orphanRemoval=true)
     private List<Butacas> butacas;
 
     public int getIdAvion() {
