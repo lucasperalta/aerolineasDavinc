@@ -21,7 +21,7 @@
   background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color : #fff;    
-}
+} 
 .contact-section{
   padding-top: 40px;
 }
@@ -40,6 +40,7 @@ label{
   font-size: 1.3em;
   line-height: 1em;
   font-weight: normal;
+  color: white;
 }
 .form-control{
   font-size: 1.3em;
@@ -48,6 +49,11 @@ label{
 textarea.form-control {
     height: 135px;
    /* margin-top: px;*/
+
+}
+
+.costo{
+    width: 15%;
 }
 
 .submit{
@@ -55,7 +61,8 @@ textarea.form-control {
   float: right;
   width: 150px;
   background-color: transparent;
-  color: #fff;
+  color: #000;
+  margin: 5%;
 
 }
 
@@ -92,4 +99,39 @@ textarea.form-control {
 
     background: #ccbbbb;
     
+}
+
+.container {
+   margin-top: 10%;
+    width: 80%;   
+}
+
+.aviones{
+    margin: 5% 0 5% 30%;
+}
+.register{
+    margin-right: 5%;
+}
+
+.admin ul li{
+    font-size: 1.1em;
+  width: 150px;
+  background-color: transparent;
+  color: #000;
+  margin: 2% 0 2% 42%;
+ list-style-type: none;
+    
+}
+
+.admin ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.login{
+    margin: 5% 0 0 33%;
+}
+
+.sublog{
+    margin-right: 15%;
 }

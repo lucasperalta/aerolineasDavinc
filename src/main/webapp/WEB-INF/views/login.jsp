@@ -18,7 +18,7 @@
 
 </head>
 
-body>
+<body>
 <div id="contact">
     <div class="container">
         <h2 class="text-center">Login</h2>
