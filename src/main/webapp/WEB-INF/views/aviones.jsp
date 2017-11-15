@@ -8,7 +8,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Aviones</title>
+    <link rel="stylesheet" href="/recursos/css/bootstrap.css">
 
+    <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 <style>
 
 	.error {
@@ -16,6 +18,7 @@
 	}
 </style>
 
+    <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 </head>
 
 <body>

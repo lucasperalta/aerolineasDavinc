@@ -15,6 +15,9 @@
             color: #ff0000;
         }
     </style>
+    <link rel="stylesheet" href="/recursos/css/bootstrap.css">
+
+    <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 
 </head>
 
@@ -27,16 +30,17 @@
             <form:form method="POST" action="/login" >
             <table>
                 <tr>
-
-                    <td><div class="form-group">
+                    <div class="form-group">
+                    <td>
                         <label for="usuario">Usuario: </label> </td>
                     <td><input class="form-control" type="text" name="usuario" id="usuario"/></td>
-        </div>
+                     </div>
 
         </tr>
 
         <tr>
-            <td><div class="form-group">
+            <div class="form-group">
+            <td>
                 <label for="Password">Password: </label> </td>
             <td><input class="form-control" type="password" name="password" id="password"/></td>
     </div>
