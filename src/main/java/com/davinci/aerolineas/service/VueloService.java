@@ -10,4 +10,10 @@ public interface VueloService {
 
 
     List<Vuelo> getAll();
+
+    Vuelo getById(int idVuelo);
+
+    void updateVuelo(Vuelo vuelo);
+
+    void deleteVueloById(int idVuelo);
 }

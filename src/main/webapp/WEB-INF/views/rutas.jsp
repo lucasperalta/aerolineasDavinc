@@ -9,7 +9,17 @@
 <c:if test="${not empty error}">
     Error: ${error}
 </c:if>
-<form method="POST"  action="/altaRutas">
+
+
+<c:set var="action" value="/altaRutas" />
+
+
+<c:if test = "${edit}">
+    <c:set var="action" value="/updateRutas" />
+
+</c:if>
+
+<form method="POST" action="${action}">
     <input type="hidden" path="idDestino" id="idDestino"/>
 
 <label for="origen">Origen</label>
@@ -17,7 +27,14 @@
     <option value="0">Seleccione Origen</option>
 
     <c:forEach items="${destinos}" var="destino">
-    <option value="${destino.idDestino}">${destino.pais}-${destino.provincia}</option>
+        <c:choose>
+        <c:when test="${destinosOrigenSelectId==destino.idDestino}">
+            <option selected value="${destino.idDestino}">${destino.pais}-${destino.provincia}</option>
+        </c:when>
+        <c:otherwise>
+            <option value="${destino.idDestino}">${destino.pais}-${destino.provincia}</option>
+        </c:otherwise>
+    </c:choose>
 </c:forEach>
 </select>
 
@@ -26,11 +43,27 @@
     <option value="0">Seleccione Destino</option>
 
     <c:forEach items="${destinos}" var="destino">
-        <option value="${destino.idDestino}">${destino.pais}-${destino.provincia}</option>
+        <c:choose>
+            <c:when test="${destinosLlegadaSelectId==destino.idDestino}">
+                <option selected value="${destino.idDestino}">${destino.pais}-${destino.provincia}</option>
+            </c:when>
+            <c:otherwise>
+                <option value="${destino.idDestino}">${destino.pais}-${destino.provincia}</option>
+            </c:otherwise>
+        </c:choose>
     </c:forEach>
 </select>
-
-<input type="submit" value="Agregar Ruta"/>
+    <c:choose>
+        <c:when test="${edit}">
+            <input type="submit" value="editar"/>
+        </c:when>
+        <c:otherwise>
+            <input type="submit" value="agregar"/>
+        </c:otherwise>
+    </c:choose>
 </form>
+
+Go back to <a href="<c:url value='/showAdmin' />">Volver a admin</a>
+
 </body>
 </html>

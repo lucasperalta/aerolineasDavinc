@@ -10,4 +10,8 @@ public interface VueloDao {
     public void saveVuelo(Vuelo vuelo);
 
     List<Vuelo> getAll();
+
+    Vuelo getById(int idVuelo);
+
+    void deleteVueloById(int idVuelo);
 }

@@ -17,7 +17,7 @@
 
 
 <body>
-	<h2>Lista de Rutas</h2>
+	<h2>Lista de Vuelos</h2>
 	<table>
 		<tr>
             <td>Id</td>

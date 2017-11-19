@@ -1,5 +1,6 @@
 package com.davinci.aerolineas.controller;
 
+import com.davinci.aerolineas.dto.AvionDto;
 import com.davinci.aerolineas.dto.RutaDto;
 import com.davinci.aerolineas.model.*;
 import com.davinci.aerolineas.service.AvionesService;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -117,4 +119,53 @@ public class RutasController {
         }
 
     }
+
+    @RequestMapping(value = {"/updateRutas"}, method = RequestMethod.POST)
+    public String updateRutas(@Valid RutaDto rutas, BindingResult result,
+                                HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+
+
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (UsuarioUtils.isAnalista(usuario)) {
+            if (result.hasErrors()) {
+                return "rutas";
+            }
+            rutaService.updateRuta(rutas);
+
+            model.addAttribute("success", "Ruta " + rutas.getIdRuta() + " actualizado Ok");
+            return "success";
+        } else {
+            return "login";
+        }
+
+
+    }
+
+    @RequestMapping(value = { "/edit-{idRuta}-ruta" }, method = RequestMethod.GET)
+    public String editAvion(@PathVariable int idRuta, ModelMap model) {
+        Ruta ruta = rutaService.getById(idRuta);
+        List<Destinos> destinos= destinoService.getAll();
+        model.addAttribute("destinosOrigenSelectId", ruta.getDestinoPartida().getIdDestino());
+        model.addAttribute("destinosLlegadaSelectId", ruta.getDestinoLlegada().getIdDestino());
+        model.addAttribute("destinos", destinos);
+        model.addAttribute("edit", true);
+        return "rutas";
+    }
+
+
+
+
+    /*
+	 * This method will delete an employee by it's SSN value.
+	 */
+    @RequestMapping(value = { "/delete-{idRuta}-ruta" }, method = RequestMethod.GET)
+    public String deleteAvion(@PathVariable int idRuta) {
+        rutaService.deleteRutaById(idRuta);
+        return "redirect:/listarRutas";
+    }
+
+
+
+
+
 }

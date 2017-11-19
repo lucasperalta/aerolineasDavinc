@@ -2,6 +2,7 @@ package com.davinci.aerolineas.dao;
 
 import com.davinci.aerolineas.model.Ruta;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -26,6 +27,12 @@ public class RutaDaoImpl extends AbstractDao<Integer, Ruta> implements RutaDao {
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("idRuta", rutaId));
         return (Ruta) criteria.uniqueResult();
+    }
+
+    public void deleteRutaById(int idRuta) {
+        Query query = getSession().createSQLQuery("delete from Rutas where idRuta = :idRuta");
+        query.setInteger("idRuta", idRuta);
+        query.executeUpdate();
     }
 
 }

@@ -13,4 +13,6 @@ public interface RutaDao {
     List<Ruta> getAll();
 
     Ruta getById(int rutaid);
+
+    void deleteRutaById(int idRuta);
 }

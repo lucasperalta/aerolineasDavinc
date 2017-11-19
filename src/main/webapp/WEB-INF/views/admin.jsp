@@ -9,9 +9,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" href="/recursos/css/bootstrap.css">
-
-    <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 </head>
 <body>
 
