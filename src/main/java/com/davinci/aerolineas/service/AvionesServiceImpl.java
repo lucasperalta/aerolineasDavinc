@@ -1,12 +1,9 @@
 package com.davinci.aerolineas.service;
 
 import com.davinci.aerolineas.dao.AvionesDao;
-import com.davinci.aerolineas.dao.DestinoDao;
 import com.davinci.aerolineas.dto.AvionDto;
 import com.davinci.aerolineas.model.Aviones;
 import com.davinci.aerolineas.model.Butacas;
-import com.davinci.aerolineas.model.Destinos;
-import com.davinci.aerolineas.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
