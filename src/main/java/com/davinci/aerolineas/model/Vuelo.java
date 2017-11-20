@@ -20,8 +20,16 @@ public class Vuelo {
     @Column(name = "costoVuelo")
     private float costoVuelo;
 
+    @Column(name = "vueloHabilitado")
+    private boolean vueloHabilitado;
 
+    public boolean getVueloHabilitado() {
+        return vueloHabilitado;
+    }
 
+    public void setVueloHabilitado(boolean vueloHabilitado) {
+        this.vueloHabilitado = vueloHabilitado;
+    }
 
     public int getIdVuelo() {
         return idVuelo;

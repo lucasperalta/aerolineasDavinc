@@ -1,5 +1,6 @@
 package com.davinci.aerolineas.dao;
 
+import com.davinci.aerolineas.model.Aviones;
 import com.davinci.aerolineas.model.Vuelo;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -30,5 +31,22 @@ public class VueloDaoImpl extends AbstractDao<Integer, Vuelo> implements VueloDa
         query.setInteger("idVuelo", idVuelo);
         query.executeUpdate();
     }
+
+    public List<Vuelo> getVuelosHabilitados() {
+        Criteria criteria =createEntityCriteria();
+        criteria.add(Restrictions.eq("vueloHabilitado", true));
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return criteria.list();
+
+    }
+
+    @Override
+    public List getByAvion(Aviones avion) {
+        Criteria criteria =createEntityCriteria();
+        criteria.add(Restrictions.eq("avion", avion));
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return criteria.list();
+    }
+
 
 }

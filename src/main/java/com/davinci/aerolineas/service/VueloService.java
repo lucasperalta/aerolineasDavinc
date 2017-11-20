@@ -16,4 +16,8 @@ public interface VueloService {
     void updateVuelo(Vuelo vuelo);
 
     void deleteVueloById(int idVuelo);
+
+    public List<Vuelo> getVuelosHabilitados();
+
+    List getByAvion(Aviones avion);
 }

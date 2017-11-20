@@ -33,7 +33,7 @@
              <c:set var="action" value="/updateAviones" />
 
 		 </c:if>
-	<form:form method="POST" modelAttribute="aviones" action="${action}">
+	<form:form method="POST" modelAttribute="aviones" >
 
 		<form:input type="hidden" path="idAvion" id="idAvion"/>
 		<table>

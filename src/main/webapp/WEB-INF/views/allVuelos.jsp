@@ -23,10 +23,12 @@
             <td>Id</td>
 			<td>Costo</td>
             <td>Matricula Avion</td>
+			<td>Estado del vuelo</td>
             <td>Pais Origen</td>
             <td>Provincia Origen</td>
 			<td>Pais Destino</td>
 			<td>Provincia Destino</td>
+
             <td></td>
 		</tr>
 		<c:forEach items="${vuelos}" var="vuelo">
@@ -34,6 +36,7 @@
             <td> ${vuelo.idVuelo}</td>
             <td> ${vuelo.costoVuelo}</td>
             <td> ${vuelo.avion.matricula}</td>
+			<td> ${vuelo.vueloHabilitado}</td>
             <td>${vuelo.ruta.destinoPartida.pais}</td>
             <td>${vuelo.ruta.destinoPartida.provincia}</td>
             <td>${vuelo.ruta.destinoLlegada.pais}</td>

@@ -12,4 +12,14 @@ public class UsuarioUtils {
         return false;
     }
 
+
+    public static Boolean isVendedor(Usuario usuario) {
+
+        if (usuario != null && usuario.getRolUsuario().equals("vendedor")) {
+            return true;
+        }
+        return false;
+    }
+
+
 }
