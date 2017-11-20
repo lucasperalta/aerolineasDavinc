@@ -22,47 +22,54 @@
 			</div>
 			<div class="contact-section">
 			<div class="container">
-				<form>
+				<form method="POST" action="/savePasajero">
+                    <input type="hidden" name="idVuelo" id="idVuelo" value="${idVuelo}">
 				    <div>
-				        <h1>Adulto1</h1>
+				        <h1>Pasajero</h1>
 				    </div>
 					<div class="col-md-3 form-line">
 			  			<div class="form-group">
-			  				<label for="exampleInputNombre">Nombre</label>
-					    	<input type="text" class="form-control" id="">
+			  				<label for="nombre">Nombre</label>
+					    	<input type="text" class="form-control" id="nombre" name="nombre">
 				  		</div>
                     </div>
                     <div class="col-md-3 form-line">
-				  		<div class="form-group">
-					    	<label for="exampleInputEmail">DNI</label>
-					    	<input type="dni" class="form-control" id="exampleInputDNI">
-					  	</div>	
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" >
+                        </div>
                     </div>
                     <div class="col-md-3 form-line">
+				  		<div class="form-group">
+					    	<label for="dni">DNI</label>
+					    	<input type="text" class="form-control" id="dni" name="dni" >
+					  	</div>	
+                    </div>
+                    <div class="col-md-2 form-line">
 					  	<div class="form-group">
 					    	<label for="butacas">Nro. Butaca</label>
-					    	<select name="dia de la semana" class="form-control">
-                            <option>A14</option>
-                            <option>A15</option>
-                            <option>J16</option>
-                            <option>J18</option>
-                            <option>J19</option>
+					    	<select name="butaca" id="butaca" class="form-control">
+							<c:forEach items="${butacasDisponibles}" var="butaca">
+                                <option  value="${butaca}">${butaca}</option>
+                            </c:forEach>
                             </select>
 			  			</div>
                     </div>
-                    <div class="col-md-3 form-line">
+                    <div class="col-md-1 form-line">
                         <div class="form-group">
-					    	<label for="exampleInputEmail">Precio</label>
-                            <p class="form-control" id="precio" >$5000</p>
+					    	<label for="precio">Precio</label>
+                            <p class="form-control" id="precio" readonly="" name="precio" >${costoVuelo}</p>
 					  	</div>	
                     </div>
                     <div class="col-md-12">
 					 <div class="button-container">
-			  			<button type="button" class="btn btn-default centerbtn submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>Comprar</button>
+			  			<button type="submit" class="btn btn-default centerbtn submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>Comprar</button>
 			        </div>
 					 </div>
 				</form>
-        	</div>
+                <a href="<c:url value='/ventas' />">Volver a ventas</a>
+
+            </div>
 				</div>
 		</section>
 </body>

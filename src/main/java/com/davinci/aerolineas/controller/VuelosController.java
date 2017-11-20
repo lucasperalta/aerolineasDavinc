@@ -73,6 +73,8 @@ public class VuelosController {
                 return "vuelos";
             }
 
+
+
             int  rutaid= Integer.parseInt(request.getParameter("ruta"));
             if(rutaid==0) {
                 List<Ruta> rutas= rutaService.getAll();
@@ -98,11 +100,24 @@ public class VuelosController {
             }
 
             Aviones avion= avionesService.getById(avionId);
+           List vueloAviones= vueloService.getByAvion(avion);
+            if(!vueloAviones.isEmpty()){
+                List<Ruta> rutas= rutaService.getAll();
+                List<Aviones> aviones = avionesService.getAll();
+
+                model.addAttribute("aviones", aviones);
+                model.addAttribute("rutas", rutas);
+
+                model.addAttribute("error", "Este avion ya tiene un vuelo asociado");
+                return "vuelos";
+            }
+
             Ruta ruta= rutaService.getById(rutaid);
             Vuelo vuelo = new Vuelo();
             vuelo.setAvion(avion);
             vuelo.setRuta(ruta);
             vuelo.setCostoVuelo(costoVuelo);
+            vuelo.setVueloHabilitado(true);
             vueloService.saveVuelo(vuelo);
             model.addAttribute("success", "Vuelo " + vuelo.getIdVuelo() + " registrado Ok");
             return "success";
@@ -181,6 +196,7 @@ public class VuelosController {
             vuelo.setAvion(avion);
             vuelo.setRuta(ruta);
             vuelo.setCostoVuelo(costoVuelo);
+            vuelo.setVueloHabilitado(true);
             vueloService.updateVuelo(vuelo);
 
             model.addAttribute("success", "Vuelo " + vuelo.getIdVuelo() + " registrado Ok");
