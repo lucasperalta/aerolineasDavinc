@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>University Enrollments</title>
+	<title>Lista de Destinos</title>
 
 	<style>
 		tr:first-child{
@@ -12,13 +12,16 @@
 			background-color: #C6C9C4;
 		}
 	</style>
-
+	<link rel="stylesheet" href="/recursos/css/bootstrap.css">
+	<link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 </head>
 
 
 <body>
-	<h2>Lista de Destinos</h2>
-	<table>
+<div id="contact">
+	<div class="container">
+		<h2 class="text-center">Lista de Destinos</h2>
+	<table class="tballdes table-bordered text-center">
 		<tr>
             <td>Id</td>
             <td>Pais</td>
@@ -30,12 +33,14 @@
             <td> ${destino.idDestino}</td>
 			<td>${destino.pais}</td>
 
-			<td><a href="<c:url value='/edit-${destino.idDestino}-destino' />">${destino.provincia}</a></td>
-			<td><a href="<c:url value='/delete-${destino.idDestino}-destino' />">delete</a></td>
+			<td><a class="tdboton" href="<c:url value='/edit-${destino.idDestino}-destino' />">${destino.provincia}</a></td>
+			<td><a class="tdboton" href="<c:url value='/delete-${destino.idDestino}-destino' />">Eliminar</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br/>
-	<a href="<c:url value='/showAdmin' />">Volver a Admin</a>
+	<a class="btn btn-default submit" href="<c:url value='/showAdmin' />">Volver a Admin</a>
+	</div>
+</div>
 </body>
 </html>

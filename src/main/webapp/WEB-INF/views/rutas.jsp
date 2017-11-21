@@ -3,9 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Rutas</title>
+    <link rel="stylesheet" href="/recursos/css/bootstrap.css">
+    <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 </head>
 <body>
+<div id="contact">
+    <div class="container">
+        <h1 class="text-center title">Rutas</h1>
 <c:if test="${not empty error}">
     Error: ${error}
 </c:if>
@@ -21,7 +26,7 @@
 
 <form method="POST" action="${action}">
     <input type="hidden" path="idDestino" id="idDestino"/>
-
+    <div class="form-group">
 <label for="origen">Origen</label>
 <select name="origen" id="origen" class=field>
     <option value="0">Seleccione Origen</option>
@@ -37,7 +42,10 @@
     </c:choose>
 </c:forEach>
 </select>
+    </div>
 
+
+    <div class="form-group">
 <label for="destino">Destino</label>
 <select name="destino" id="destino" class=field>
     <option value="0">Seleccione Destino</option>
@@ -53,17 +61,26 @@
         </c:choose>
     </c:forEach>
 </select>
-    <c:choose>
+    </div>
+    <table class="tballdes">
+        <tr>
+    <td colspan="3">
+        <c:choose>
         <c:when test="${edit}">
-            <input type="submit" value="editar"/>
+            <input class="btn btn-default submit boton"  type="submit" value="Editar"/>
         </c:when>
+    </td>
+    <td>
         <c:otherwise>
-            <input type="submit" value="agregar"/>
+            <input class="btn btn-default submit boton"  type="submit" value="Agregar"/>
         </c:otherwise>
-    </c:choose>
+        </c:choose>
+    </td>
+    </tr>
+    </table>
 </form>
 
-Go back to <a href="<c:url value='/showAdmin' />">Volver a admin</a>
+<a class="btn btn-default submit" href="<c:url value='/showAdmin' />">Volver a Admin</a>
 
 </body>
 </html>

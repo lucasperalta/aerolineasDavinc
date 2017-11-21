@@ -77,14 +77,14 @@
             </div>
             <c:choose>
                 <c:when test="${edit}">
-                    <input type="submit" value="editar"/>
+                    <input class="btn btn-default submit" type="submit" value="editar"/>
                 </c:when>
                 <c:otherwise>
-                    <input type="submit" value="agregar"/>
+                    <input class="btn btn-default submit" type="submit" value="agregar"/>
                 </c:otherwise>
             </c:choose>        </form>
     </div>
-    Go back to <a href="<c:url value='/showAdmin' />">Volver a admin</a>
+    <a class="btn btn-default submit"  href="<c:url value='/showAdmin' />">Volver a admin</a>
 
 </div>
 </body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>University Enrollments</title>
+	<title>Lista de Aviones</title>
 
 	<style>
 		tr:first-child{
@@ -12,13 +12,16 @@
 			background-color: #C6C9C4;
 		}
 	</style>
-
+	<link rel="stylesheet" href="/recursos/css/bootstrap.css">
+	<link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 </head>
 
 
 <body>
-	<h2>List of Employees</h2>	
-	<table>
+<div id="contact">
+	<div class="container">
+		<h2 class="text-center">Lista de Aviones</h2>
+		<table class="tball table-bordered text-center">
 		<tr>
             <td>Id</td>
             <td>Modelo</td>
@@ -34,12 +37,14 @@
 			<td>${avion.modelo}</td>
 			<td>${avion.matricula}</td>
 			<td>${avion.butacas}</td>
-			<td><a href="<c:url value='/edit-${avion.idAvion}-avion' />">${avion.marca}</a></td>
-			<td><a href="<c:url value='/delete-${avion.idAvion}-avion' />">delete</a></td>
+			<td><a class="tdboton" href="<c:url value='/edit-${avion.idAvion}-avion' />">${avion.marca}</a></td>
+			<td><a class="tdboton" href="<c:url value='/delete-${avion.idAvion}-avion' />">Eliminar</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br/>
-	<a href="<c:url value='/showAdmin' />">Volver a Admin</a>
+	<a class="btn btn-default submit" href="<c:url value='/showAdmin' />">Volver a Admin</a>
+	</div>
+</div>
 </body>
 </html>

@@ -9,7 +9,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Aviones</title>
     <link rel="stylesheet" href="/recursos/css/bootstrap.css">
-
     <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 <style>
 
@@ -18,7 +17,6 @@
 	}
 </style>
 
-    <link href="<c:url value="/recursos/css/style.css" />" rel="stylesheet">
 </head>
 
 <body>
@@ -38,38 +36,39 @@
 		<form:input type="hidden" path="idAvion" id="idAvion"/>
 		<table>
 			<tr>
-				<td><label for="marca">marca: </label> </td>
+				<div class="form-group">
+				<td><label for="marca">Marca: </label> </td>
 				<td><form:input path="marca" id="marca"/></td>
 				<td><form:errors path="marca" cssClass="error"/></td>
+				</div>
 		    </tr>
 	    
 			<tr>
-				<td><label for="modelo">modelo: </label> </td>
+				<div class="form-group">
+				<td><label for="modelo">Modelo: </label> </td>
 				<td><form:input path="modelo" id="modelo"/></td>
 				<td><form:errors path="modelo" cssClass="error"/></td>
+				</div>
 		    </tr>
 	
 			<tr>
-				<td><label for="matricula">matricula: </label> </td>
-				<td><form:input path="matricula" id="matricula"/></td>
-				<td><form:errors path="matricula" cssClass="error"/></td>
+				<div class="form-group">
+					<td><label for="matricula">Matricula: </label> </td>
+					<td><form:input path="matricula" id="matricula"/></td>
+					<td><form:errors path="matricula" cssClass="error"/></td>
+				</div>
 		    </tr>
-
-
-						<td> <div class="form-group">
-							<label for="marca">Marca: </label> </td>
-						<td><form:input class="form-control" path="marca" id="marca"/></td>
-					</div>
-					<td><form:errors path="marca" cssClass="error"/></td>
 
 			<tr>
 				<td colspan="3">
 					<c:choose>
 						<c:when test="${edit}">
-							<input type="submit" value="editar"/>
+							<input class="btn btn-default submit" type="submit" value="Editar"/>
 						</c:when>
+				</td>
+				<td>
 						<c:otherwise>
-							<input type="submit" value="Agregar"/>
+							<input class="btn btn-default submit" type="submit" value="Agregar"/>
 						</c:otherwise>
 					</c:choose>
 				</td>
@@ -78,7 +77,8 @@
 	</form:form>
 	<br/>
 	<br/>
-	Go back to <a href="<c:url value='/showAdmin' />">Volver a admin</a>
-
+	<a class="btn btn-default submit" href="<c:url value='/showAdmin' />">Volver a admin</a>
+	</div>
+</div>
 </body>
 </html>

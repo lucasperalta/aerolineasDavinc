@@ -19,8 +19,10 @@
 </head>
 
 <body>
-
-	<h2>Destinos</h2>
+<div id="contact">
+	<div class="container">
+		<h2 class="text-center">Destinos</h2>
+		<div class="login">
     <c:set var="action" value="/altaDestino" />
 
 	<c:if test = "${edit}">
@@ -31,15 +33,19 @@
 		<form:input type="hidden" path="idDestino" id="idDestino"/>
 		<table>
 			<tr>
-				<td><label for="pais">pais: </label> </td>
+				<div class="form-group">
+				<td><label for="pais">Pais: </label> </td>
 				<td><form:input path="pais" id="pais"/></td>
 				<td><form:errors path="pais" cssClass="error"/></td>
+				</div>
 		    </tr>
 	    
 			<tr>
-				<td><label for="provincia">provincia: </label> </td>
+				<div class="form-group">
+				<td><label for="provincia">Provincia: </label> </td>
 				<td><form:input path="provincia" id="provincia"/></td>
 				<td><form:errors path="provincia" cssClass="error"/></td>
+				</div>
 		    </tr>
 	
 
@@ -48,10 +54,12 @@
 				<td colspan="3">
 					<c:choose>
 						<c:when test="${edit}">
-							<input type="submit" value="editar"/>
+							<input class="btn btn-default submit" type="submit" value="editar"/>
 						</c:when>
+				</td>
+				<td>
 						<c:otherwise>
-							<input type="submit" value="agregar"/>
+							<input class="btn btn-default submit" type="submit" value="agregar"/>
 						</c:otherwise>
 					</c:choose>
 				</td>
@@ -60,6 +68,9 @@
 	</form:form>
 	<br/>
 	<br/>
-	Go back to <a href="<c:url value='/showAdmin' />">Volver a admin</a>
+	<a class="btn btn-default submit" href="<c:url value='/showAdmin' />">Volver a admin</a>
+		</div>
+	</div>
+	</div>
 </body>
 </html>
