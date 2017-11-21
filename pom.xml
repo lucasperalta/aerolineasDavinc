@@ -149,7 +149,7 @@
 					<version>2.4</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<warName>dvairlanes</warName>
+						<warName>ROOT</warName>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
@@ -165,7 +165,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>dvairlanes</finalName>
+        <finalName>ROOT</finalName>
 	</build>
 </project>
 

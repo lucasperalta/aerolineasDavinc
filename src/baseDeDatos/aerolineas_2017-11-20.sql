@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.20)
 # Base de datos: aerolineas
-# Tiempo de Generación: 2017-11-12 08:27:18 +0000
+# Tiempo de Generación: 2017-11-21 00:30:40 +0000
 # ************************************************************
 
 
@@ -38,7 +38,9 @@ LOCK TABLES `aviones` WRITE;
 
 INSERT INTO `aviones` (`idAvion`, `marca`, `matricula`, `modelo`)
 VALUES
-	(1,'airbus','ung758','676');
+	(2,'airbus','555','676'),
+	(3,'airbus','ung666','676'),
+	(4,'boeing','232','345');
 
 /*!40000 ALTER TABLE `aviones` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -55,8 +57,8 @@ CREATE TABLE `butacas` (
   `numeroButaca` int(11) DEFAULT NULL,
   `idAvion` int(11) DEFAULT NULL,
   PRIMARY KEY (`idButaca`),
-  KEY `FK_1p2vxm7c5mfhakuapeh4yis2u` (`idAvion`),
-  CONSTRAINT `FK_1p2vxm7c5mfhakuapeh4yis2u` FOREIGN KEY (`idAvion`) REFERENCES `aviones` (`idAvion`)
+  KEY `idAvion` (`idAvion`),
+  CONSTRAINT `butacas_ibfk_1` FOREIGN KEY (`idAvion`) REFERENCES `aviones` (`idAvion`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `butacas` WRITE;
@@ -64,10 +66,14 @@ LOCK TABLES `butacas` WRITE;
 
 INSERT INTO `butacas` (`idButaca`, `disponibilidad`, `numeroButaca`, `idAvion`)
 VALUES
-	(1,'SI',1,1),
-	(2,'SI',2,1),
-	(3,'SI',3,1),
-	(4,'SI',4,1);
+	(19,'SI',1,2),
+	(20,'NO',2,2),
+	(21,'NO',3,2),
+	(22,'NO',4,2),
+	(23,'SI',1,3),
+	(24,'SI',1,4),
+	(25,'NO',2,4),
+	(26,'SI',3,4);
 
 /*!40000 ALTER TABLE `butacas` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -90,29 +96,12 @@ LOCK TABLES `destinos` WRITE;
 
 INSERT INTO `destinos` (`idDestino`, `pais`, `provincia`)
 VALUES
-	(1,'Argentina','cordoba'),
-	(2,'Argentina','buenos aires'),
-	(3,'Argentina','san luis');
+	(3,'Argentina','mendoza'),
+	(4,'Argentina','cordoba'),
+	(5,'Argentina','san luis');
 
 /*!40000 ALTER TABLE `destinos` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Volcado de tabla EMPLOYEE
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `EMPLOYEE`;
-
-CREATE TABLE `EMPLOYEE` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `JOINING_DATE` date NOT NULL,
-  `NAME` varchar(50) NOT NULL,
-  `SALARY` decimal(10,2) NOT NULL,
-  `SSN` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_p136ambt19xg166m0jf37p7wn` (`SSN`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 # Volcado de tabla pasajes
@@ -128,10 +117,21 @@ CREATE TABLE `pasajes` (
   `nombreCliente` varchar(255) DEFAULT NULL,
   `vuelo_idVuelo` int(11) DEFAULT NULL,
   PRIMARY KEY (`idPasaje`),
-  KEY `FK_kbdt202g8poy3c4rowcc76gly` (`vuelo_idVuelo`),
-  CONSTRAINT `FK_kbdt202g8poy3c4rowcc76gly` FOREIGN KEY (`vuelo_idVuelo`) REFERENCES `vuelos` (`idVuelo`)
+  KEY `vuelo_idVuelo` (`vuelo_idVuelo`),
+  CONSTRAINT `pasajes_ibfk_1` FOREIGN KEY (`vuelo_idVuelo`) REFERENCES `vuelos` (`idVuelo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `pasajes` WRITE;
+/*!40000 ALTER TABLE `pasajes` DISABLE KEYS */;
+
+INSERT INTO `pasajes` (`idPasaje`, `apellidoCliente`, `butaca`, `dniCliente`, `nombreCliente`, `vuelo_idVuelo`)
+VALUES
+	(1,'pirulo',4,27659662,'lucas',1),
+	(2,'dasdsadsadasdas',3,27659633,'lucas',3),
+	(3,'3214ersdaf',4,23456345,'lucas',1);
+
+/*!40000 ALTER TABLE `pasajes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Volcado de tabla rutas
@@ -144,10 +144,10 @@ CREATE TABLE `rutas` (
   `destinoLlegada_idDestino` int(11) DEFAULT NULL,
   `destinoPartida_idDestino` int(11) DEFAULT NULL,
   PRIMARY KEY (`idRuta`),
-  KEY `FK_7oasy47rlm4isge1it8j1hx3q` (`destinoLlegada_idDestino`),
-  KEY `FK_9l99hr4md79xt9ox8saolk7sh` (`destinoPartida_idDestino`),
-  CONSTRAINT `FK_7oasy47rlm4isge1it8j1hx3q` FOREIGN KEY (`destinoLlegada_idDestino`) REFERENCES `destinos` (`idDestino`),
-  CONSTRAINT `FK_9l99hr4md79xt9ox8saolk7sh` FOREIGN KEY (`destinoPartida_idDestino`) REFERENCES `destinos` (`idDestino`)
+  KEY `destinoLlegada_idDestino` (`destinoLlegada_idDestino`),
+  KEY `destinoPartida_idDestino` (`destinoPartida_idDestino`),
+  CONSTRAINT `rutas_ibfk_1` FOREIGN KEY (`destinoLlegada_idDestino`) REFERENCES `destinos` (`idDestino`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `rutas_ibfk_2` FOREIGN KEY (`destinoPartida_idDestino`) REFERENCES `destinos` (`idDestino`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `rutas` WRITE;
@@ -155,8 +155,10 @@ LOCK TABLES `rutas` WRITE;
 
 INSERT INTO `rutas` (`idRuta`, `destinoLlegada_idDestino`, `destinoPartida_idDestino`)
 VALUES
-	(1,2,1),
-	(2,2,3);
+	(2,3,3),
+	(3,5,4),
+	(4,4,5),
+	(5,4,5);
 
 /*!40000 ALTER TABLE `rutas` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -198,19 +200,21 @@ CREATE TABLE `vuelos` (
   `costoVuelo` float DEFAULT NULL,
   `avion_idAvion` int(11) DEFAULT NULL,
   `ruta_idRuta` int(11) DEFAULT NULL,
+  `vueloHabilitado` bit(1) DEFAULT NULL,
   PRIMARY KEY (`idVuelo`),
-  KEY `FK_mq21qxa7s2vvxx39o9w5rs1r7` (`avion_idAvion`),
-  KEY `FK_sl9b5exgqho38srrb9ohlgl5k` (`ruta_idRuta`),
-  CONSTRAINT `FK_mq21qxa7s2vvxx39o9w5rs1r7` FOREIGN KEY (`avion_idAvion`) REFERENCES `aviones` (`idAvion`),
-  CONSTRAINT `FK_sl9b5exgqho38srrb9ohlgl5k` FOREIGN KEY (`ruta_idRuta`) REFERENCES `rutas` (`idRuta`)
+  KEY `avion_idAvion` (`avion_idAvion`),
+  KEY `ruta_idRuta` (`ruta_idRuta`),
+  CONSTRAINT `vuelos_ibfk_1` FOREIGN KEY (`avion_idAvion`) REFERENCES `aviones` (`idAvion`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vuelos_ibfk_2` FOREIGN KEY (`ruta_idRuta`) REFERENCES `rutas` (`idRuta`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `vuelos` WRITE;
 /*!40000 ALTER TABLE `vuelos` DISABLE KEYS */;
 
-INSERT INTO `vuelos` (`idVuelo`, `costoVuelo`, `avion_idAvion`, `ruta_idRuta`)
+INSERT INTO `vuelos` (`idVuelo`, `costoVuelo`, `avion_idAvion`, `ruta_idRuta`, `vueloHabilitado`)
 VALUES
-	(1,2343.23,1,2);
+	(1,342,2,2,b'1'),
+	(3,555,4,3,b'1');
 
 /*!40000 ALTER TABLE `vuelos` ENABLE KEYS */;
 UNLOCK TABLES;
